@@ -15,9 +15,13 @@ public class ScenarioServiceImpl implements ScenarioService {
 
 	private Scenario scenario;
 
+    private static int instanceCounter = 0;
+
     public ScenarioServiceImpl() {
         logIt("in ctor");
+        logIt("instance counter: " + instanceCounter);
 		scenario = new Scenario();
+        instanceCounter++;
 	}
 
 	public Scenario getScenario() {

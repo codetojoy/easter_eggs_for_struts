@@ -17,6 +17,13 @@
     <p>fieldT: <s:property value="surveyBean.isFieldT" /></p>
 
     <hr/>
+    <s:if test="surveyBean.age >= 65">
+        <p>user is senior</p>
+    </s:if>
+    <s:else>
+        <p>user is NOT senior</p>
+    </s:else>
+    <hr/>
 
     <s:textfield label="Answer A" key="surveyBean.answerA" />
     <br/>
