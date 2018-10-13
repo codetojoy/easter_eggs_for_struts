@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+		"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+		"http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="true" />
+
+	<package name="basicstruts2" extends="struts-default">
+
+		<action name="index">
+			<result>/index.jsp</result>
+		</action>
+
+	    <action name="editScenario" class="net.codetojoy.action.EditScenarioAction" method="input">
+	    	<result name="input">/editScenario.jsp</result>
+	    </action>
+
+	    <action name="saveScenario" class="net.codetojoy.action.EditScenarioAction" method="execute">
+            <!--
+	    	<result name="success">/confirmEdit.jsp</result>
+            -->
+            <result name="success" type="redirectAction">
+                <param name="actionName">editSurvey</param>
+                <param name="age">${scenarioBean.age}</param>
+                <param name="fieldP">${scenarioBean.fieldP}</param>
+                <param name="fieldT">${scenarioBean.fieldT}</param>
+            </result>
+	    </action>
+
+	    <action name="editSurvey" class="net.codetojoy.action.EditSurveyAction" method="input">
+	    	<result name="input">/editSurvey.jsp</result>
+	    </action>
+
+	    <action name="saveSurvey" class="net.codetojoy.action.EditSurveyAction" method="execute">
+	    	<result name="input">/misc.jsp</result>
+	    </action>
+	</package>
+</struts>
