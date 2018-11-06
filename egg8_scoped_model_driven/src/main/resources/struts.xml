@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+		"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+		"http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="true" />
+
+    <!--
+    https://stackoverflow.com/questions/34877866/scoped-model-driven-interceptor-in-struts-2-not-binding-model-to-session-scope
+    -->
+
+	<package name="basicstruts2" extends="defaultStack">
+		<action name="index">
+			<result>/index.jsp</result>
+		</action>
+
+	    <action name="createEmployee" class="net.codetojoy.action.CreateEmployeeAction" method="execute">
+            <interceptor-ref name="defaultStack">
+                <param  name="scopedModelDriven.scope">session</param>
+                <param  name="scopedModelDriven.name">employee</param>
+                <param  name="scopedModelDriven.className">net.codetojoy.model.Employee</param>
+            </interceptor-ref>
+
+	    	<result name="success">/successCreate.jsp</result>
+            <!--
+            <result name="success" type="redirectAction">
+                <param name="actionName">editEmployeePart1</param>
+	    	</result>
+            -->
+	    </action>
+
+	    <action name="editEmployeePart1" class="net.codetojoy.action.EditEmployeePart1Action" method="execute">
+            <interceptor-ref name="defaultStack">
+                <param  name="scopedModelDriven.scope">session</param>
+                <param  name="scopedModelDriven.name">employee</param>
+                <param  name="scopedModelDriven.className">net.codetojoy.model.Employee</param>
+            </interceptor-ref>
+
+	    	<result name="success">/successEditPart1.jsp</result>
+	    </action>
+	</package>
+</struts>
