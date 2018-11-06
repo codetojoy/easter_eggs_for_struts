@@ -10,24 +10,24 @@
     https://stackoverflow.com/questions/34877866/scoped-model-driven-interceptor-in-struts-2-not-binding-model-to-session-scope
     -->
 
-	<package name="basicstruts2" extends="defaultStack">
+	<package name="basicstruts2" extends="struts-default">
 		<action name="index">
 			<result>/index.jsp</result>
 		</action>
 
-	    <action name="createEmployee" class="net.codetojoy.action.CreateEmployeeAction" method="execute">
+	    <action name="createEmployee" class="net.codetojoy.action.CreateEmployeeAction" method="input">
+	    	<result name="input">/createEmployee.jsp</result>
+	    </action>
+
+	    <action name="confirmCreateEmployee" class="net.codetojoy.action.CreateEmployeeAction" method="execute">
             <interceptor-ref name="defaultStack">
                 <param  name="scopedModelDriven.scope">session</param>
                 <param  name="scopedModelDriven.name">employee</param>
                 <param  name="scopedModelDriven.className">net.codetojoy.model.Employee</param>
             </interceptor-ref>
-
-	    	<result name="success">/successCreate.jsp</result>
-            <!--
             <result name="success" type="redirectAction">
                 <param name="actionName">editEmployeePart1</param>
 	    	</result>
-            -->
 	    </action>
 
 	    <action name="editEmployeePart1" class="net.codetojoy.action.EditEmployeePart1Action" method="execute">
@@ -38,6 +38,26 @@
             </interceptor-ref>
 
 	    	<result name="success">/successEditPart1.jsp</result>
+	    </action>
+
+	    <action name="editEmployeePart2" class="net.codetojoy.action.EditEmployeePart2Action" method="execute">
+            <interceptor-ref name="defaultStack">
+                <param  name="scopedModelDriven.scope">session</param>
+                <param  name="scopedModelDriven.name">employee</param>
+                <param  name="scopedModelDriven.className">net.codetojoy.model.Employee</param>
+            </interceptor-ref>
+
+	    	<result name="success">/successEditPart2.jsp</result>
+	    </action>
+
+	    <action name="editEmployeePart3" class="net.codetojoy.action.EditEmployeePart3Action" method="execute">
+            <interceptor-ref name="defaultStack">
+                <param  name="scopedModelDriven.scope">session</param>
+                <param  name="scopedModelDriven.name">employee</param>
+                <param  name="scopedModelDriven.className">net.codetojoy.model.Employee</param>
+            </interceptor-ref>
+
+	    	<result name="success">/successEditPart3.jsp</result>
 	    </action>
 	</package>
 </struts>

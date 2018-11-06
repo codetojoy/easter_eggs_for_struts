@@ -8,10 +8,10 @@ import net.codetojoy.service.*;
 
 import org.apache.log4j.Logger;
 
-public class CreateEmployeeAction extends ActionSupport implements ScopedModelDriven<Employee> {
+public class EditEmployeePart2Action extends ActionSupport implements ScopedModelDriven<Employee> {
 
-    private static final Logger logger = Logger.getLogger(CreateEmployeeAction.class);
-    private static final String LOG_PREFIX = "TRACER CreateEmployeeAction  ";
+    private static final Logger logger = Logger.getLogger(EditEmployeePart2Action.class);
+    private static final String LOG_PREFIX = "TRACER EditEmployeePart2Action  ";
 
     private void logIt(String msg) {
         logger.error(LOG_PREFIX + " " + msg);
@@ -19,7 +19,7 @@ public class CreateEmployeeAction extends ActionSupport implements ScopedModelDr
 
 	private static final long serialVersionUID = 1L;
 
-    private Employee model; //  = new Employee();
+    private Employee model;
     private String scopeKey = "employee";
 
     @Override
@@ -42,18 +42,9 @@ public class CreateEmployeeAction extends ActionSupport implements ScopedModelDr
        return scopeKey;
     }
 
-	public String input() throws Exception {
-        logIt("input begin");
-		setModel(new Employee());
-		return INPUT;
-	}
-
     public String execute() throws Exception {
         logIt("execute begin");
-        // model.setName("Van Halen");
-        // model.setId(5150);
         logIt("model: " + model.toString());
-
 		return SUCCESS;
 	}
 }

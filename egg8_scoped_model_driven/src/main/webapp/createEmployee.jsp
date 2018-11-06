@@ -6,8 +6,13 @@
 <body>
 <h3>Welcome</h3>
 
-<p>success on create: <s:property value="name" /></p>
+<p>new employee:</p>
 
+<s:form action="confirmCreateEmployee" method="post">
+    <s:textfield key="id" />
+    <s:textfield key="name" />
+    <s:submit key="submit" />
+</s:form>
 
 </body>
 </html>

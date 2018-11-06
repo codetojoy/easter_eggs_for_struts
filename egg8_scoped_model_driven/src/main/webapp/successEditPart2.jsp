@@ -6,8 +6,15 @@
 <body>
 <h3>Welcome</h3>
 
-<p>success on create: <s:property value="name" /></p>
+<p>success on edit part2</p>
+<p>name : <s:property value="name" /></p>
+<p>id: <s:property value="id" /></p>
+<p>part1: <s:property value="part1" /></p>
 
+<s:form action="editEmployeePart3" method="post">
+    <s:textfield key="part2" />
+    <s:submit key="submit" />
+</s:form>
 
 </body>
 </html>
