@@ -1,0 +1,14 @@
+apply plugin: 'war'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile 'org.apache.struts:struts2-core:2.5.17'
+    compile 'com.jgeppert.struts2.bootstrap:struts2-bootstrap-plugin:2.5.2'
+
+    compile group: 'log4j', name: 'log4j', version: '1.2.17'
+
+    compileOnly 'tomcat:servlet-api:5.5.23'
+}
