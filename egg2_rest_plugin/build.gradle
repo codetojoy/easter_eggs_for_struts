@@ -1,0 +1,15 @@
+apply plugin: 'war'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile 'org.apache.struts:struts2-core:2.3.20'
+    compile 'org.apache.struts:struts2-convention-plugin:2.3.20'
+    compile 'org.apache.struts:struts2-rest-plugin:2.3.20'
+
+    compile group: 'log4j', name: 'log4j', version: '1.2.17'
+
+    compileOnly 'tomcat:servlet-api:5.5.23'
+}
