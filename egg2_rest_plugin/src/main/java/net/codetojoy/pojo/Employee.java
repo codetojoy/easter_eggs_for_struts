@@ -5,10 +5,18 @@ public class Employee {
     private String name;
     private String company;
 
+    public Employee() {
+    }
+
     public Employee(Integer id, String name, String company) {
         this.id =id;
         this.name = name;
         this.company = company;
+    }
+
+    @Override
+    public String toString() {
+        return "id: " + id + " name: " + name + " company: " + company;
     }
 
     public Integer getId() { return id; }

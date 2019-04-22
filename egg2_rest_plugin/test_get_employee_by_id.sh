@@ -13,7 +13,6 @@ cd data
 touch $ID.json
 rm $ID.json
 
-# wget -q http://localhost:5151/egg2_rest_plugin/employee/$ID.json 
 wget -q http://localhost:5151/egg2_rest_plugin/employee/$ID -O $ID.json
 
 echo "wget result: $?"

@@ -13,6 +13,24 @@ public class EmployeeRepository {
         map.put("333", new Employee(333, "Mozart", "Snafoo"));
     }
 
+    public Collection<Employee> getAll() {
+        Collection<Employee> results = new ArrayList<>();
+
+        for (String key : map.keySet()) {
+            Employee employee = map.get(key);
+            results.add(employee);
+        }
+
+        return results;
+    }
+
+    public void addEmployee(Object model) {
+        int newId = 5150;
+        Employee employee = (Employee) model;
+        employee.setId(newId);
+        map.put("" + newId, employee);
+    }
+
     public  Employee getEmployeeById(String id) {
         return map.get(id);
     }
