@@ -18,7 +18,7 @@ public class EmployeeController implements ModelDriven<Object> {
     private EmployeeRepository employeeRepository = new EmployeeRepository();
 
     private static final Logger logger = Logger.getLogger(EmployeeController.class);
-    private static final String VERSION = "v1";
+    private static final String VERSION = "v2";
     private static int instanceCount = 0;
 
     private void logIt(String msg) {
@@ -56,16 +56,15 @@ public class EmployeeController implements ModelDriven<Object> {
         String whoAmI = "create";
 
         try {
-            logIt("create cp 0 model: " + model);
+            logIt(whoAmI + " cp 0 model: " + model);
+            employeeRepository.addEmployee(model);
             Employee employee = (Employee) model;
-            logIt("create cp 1");
-            employeeRepository.addEmployee(employee);
-            logIt("create cp 2");
-            logIt("create OK. new id: " + employee.getId());
+            logIt(whoAmI + " OK. new id: " + employee.getId());
             result = new DefaultHttpHeaders("success").setLocationId(employee.getId());
         } catch (Exception ex) {
             logIt(whoAmI + " caught ex: " + ex.getMessage());
         }
+
         return result;
     }
 

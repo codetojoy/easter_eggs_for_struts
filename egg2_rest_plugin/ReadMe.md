@@ -1,6 +1,7 @@
 
 ### Resources
 
+* [0](https://github.com/apache/struts/tree/master/plugins/rest) plugin source
 * [1](http://www.jgeppert.com/2015/05/creating-java-web-applications-with-angularjs-and-struts2/)
 * [2](https://www.concretepage.com/struts-2/struts-2-rest-web-service-integration-example)
 * [3](https://github.com/apache/struts/tree/master/apps/rest-showcase) Orders example
@@ -11,11 +12,11 @@
 ### TODO
 
 * full CRUD for Employee
-    * create
-    x * read
+    * X - read / GET
+    * create / POST
     * update
     * delete
-X * plurality of employees
+* X - plurality of employees
 * workflow in some form of client
 X * remove the json from the URI
 * possibly a ContentMapper
