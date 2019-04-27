@@ -17,8 +17,9 @@ public class EmployeeController implements ModelDriven<Object> {
     private Collection<Employee> employees;
     private EmployeeRepository employeeRepository = new EmployeeRepository();
 
+    // ------- logger
     private static final Logger logger = Logger.getLogger(EmployeeController.class);
-    private static final String VERSION = "v2";
+    private static final String VERSION = "v4";
     private static int instanceCount = 0;
 
     private void logIt(String msg) {
@@ -27,6 +28,7 @@ public class EmployeeController implements ModelDriven<Object> {
                                         + "] ";
         logger.info(prefix + " " + msg);
     }
+    //
 
     private String safeModelStr() {
         return (model == null) ? "" : model.toString();
@@ -50,7 +52,7 @@ public class EmployeeController implements ModelDriven<Object> {
         return new DefaultHttpHeaders("index").disableCaching();
     }
 
-    // POST
+    // POST ~/employee
     public HttpHeaders create() {
         HttpHeaders result = null;
         String whoAmI = "create";
@@ -68,12 +70,19 @@ public class EmployeeController implements ModelDriven<Object> {
         return result;
     }
 
-    public String add() {
-        logIt("add");
-        Integer empId = Integer.parseInt(id);
-        Employee emp = new Employee(empId,"Ramesh", "PQR");
-        model = emp;
-        return "SUCCESS";
+    // PUT ~/employee/id
+    public String update() {
+        String result = "success";
+        String whoAmI = "update";
+
+        try {
+            logIt(whoAmI + " cp 0 model: " + model);
+            employeeRepository.saveEmployee(model);
+        } catch (Exception ex) {
+            logIt(whoAmI + " caught ex: " + ex.getMessage());
+        }
+
+        return result;
     }
 
     public String getId() {

@@ -13,8 +13,8 @@
 
 * full CRUD for Employee
     * X - read / GET
-    * create / POST
-    * update
+    * X - create / POST
+    * X - update / PUT
     * delete
 * X - plurality of employees
 * workflow in some form of client
