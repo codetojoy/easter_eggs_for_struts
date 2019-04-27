@@ -76,4 +76,13 @@ public class EmployeeRepository {
 
         return map.get(idInt);
     }
+
+    public void deleteEmployee(Object model) {
+        String whoAmI = "deleteEmployee";
+
+        Employee employee = (Employee) model;
+        int id = employee.getId();
+        logIt(whoAmI + " id: " + id);
+        map.remove(id);
+    }
 }

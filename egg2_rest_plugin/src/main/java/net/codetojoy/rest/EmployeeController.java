@@ -85,6 +85,21 @@ public class EmployeeController implements ModelDriven<Object> {
         return result;
     }
 
+    // DELETE ~/employee/id
+    public String destroy() {
+        String result = "success";
+        String whoAmI = "destroy";
+
+        try {
+            logIt(whoAmI + " cp 0 model: " + model);
+            employeeRepository.deleteEmployee(model);
+        } catch (Exception ex) {
+            logIt(whoAmI + " caught ex: " + ex.getMessage());
+        }
+
+        return result;
+    }
+
     public String getId() {
         logIt("getId id: " + id);
         return id;
