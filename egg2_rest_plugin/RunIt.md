@@ -11,6 +11,9 @@
 
 ```
 ./test_get_employees.sh
+./test_get_employee_by_id.sh 111
+./test_get_edit_employee_by_id.sh 111
+./test_get_edit_new_employee.sh
 ```
 
 ### Example POST

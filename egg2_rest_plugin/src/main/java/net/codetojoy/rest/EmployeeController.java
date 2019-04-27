@@ -52,6 +52,21 @@ public class EmployeeController implements ModelDriven<Object> {
         return new DefaultHttpHeaders("index").disableCaching();
     }
 
+    // GET /employee/1/edit
+    public String edit() {
+        String whoAmI = "edit";
+        logIt(whoAmI + " cp 0");
+        return "edit";
+    }
+
+    // GET /employee/new
+    public String editNew() {
+        String whoAmI = "editNew";
+        logIt(whoAmI + " cp 0");
+        model = new Employee();
+        return "editNew";
+    }
+
     // POST ~/employee
     public HttpHeaders create() {
         HttpHeaders result = null;

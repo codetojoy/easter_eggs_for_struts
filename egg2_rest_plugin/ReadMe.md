@@ -11,16 +11,10 @@
 
 ### TODO
 
-* full CRUD for Employee
-    * X - read / GET
-    * X - create / POST
-    * X - update / PUT
-    * delete
-* X - plurality of employees
-* workflow in some form of client
-X * remove the json from the URI
-* possibly a ContentMapper
 * both RESTful and not (actions)
+* workflow in some form of client
+* mix in Spring MVC/Jersey (in another project) 
+* possibly a ContentMapper
 * start the Survey example
 
 ### Random
